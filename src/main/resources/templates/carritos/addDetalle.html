@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+    <head th:replace="layout/layout :: head">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container-fluid" layout:fragment="page-content">            
+            <nav class="navbar navbar-light bg-info m-2">
+                <h4 class="ps-3"><i class="fa-solid fa-cart-shopping me-2"></i>CARRITO</h4>
+            </nav>
+            <div class="container mt-3">
+                <h3 th:text="${titulo}"></h3>
+                <hr>
+                <form th:action="@{/carrito/save}" method="post" enctype="multipart/form-data" th:object="${carrito}">    
+                    
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">cantidad:</label>
+                        <input type="text" class="form-control" th:field="*{cantidad}" id="cantidad">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('cantidad')}"
+                               th:errors="*{cantidad}"></small>
+                    </div>
+                    <!--<div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">costo:</label>
+                        <input type="text" class="form-control"  th:field="*{costo}" id="costo">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('costo')}"
+                               th:errors="*{costo}"></small>
+                    </div>--> 
+                    <div class="mb-3">                        
+                        <label for="recipient-name" class="col-form-label">producto:</label>
+                        <select th:field="*{producto}" id="producto" class="form-select">
+                            <option th:each="pro:${productos}" th:value="${pro.id}" th:text="${pro.nombre}+' '+${pro.precio}"></option>
+                        </select>
+                    </div>                    
+                     <!--<div class="mb-3">                        
+                        <label for="recipient-name" class="col-form-label">cliente:</label>
+                        <select th:field="*{venta}" id="empleado" class="form-select">
+                            <option th:each="vt:${ventas}" th:value="${vt.id}" th:text="${vt.cliente.nombres}"></option>
+                        </select>
+                    </div>-->  
+                          
+
+                    <a th:href="@{/carrito}" class="btn btn-secondary" >Cancel</a>
+                    <input type="submit" class="btn btn-primary"/>
+                </form>
+            </div>
+            </div>
+        <!--OTRO SCRIPTS PARA PAGINAS-->
+        <th:block layout:fragment="page-scripts">
+
+        </th:block>
+
+        </body>
+        </html>

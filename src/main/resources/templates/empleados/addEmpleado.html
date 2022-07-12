@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+    <head th:replace="layout/layout :: head">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container-fluid" layout:fragment="page-content">            
+            <nav class="navbar navbar-light bg-light m-2">
+                <h4 class="ps-3"><i class="fa-solid fa-users me-2"></i>empleados</h4>
+            </nav>
+            <div class="container mt-3">
+                <h3 th:text="${titulo}"></h3>
+                <hr>
+                <form th:action="@{/empleado/save}" method="post" th:object="${empleado}">                    
+                    <div class="mb-3">
+                        <input type="hidden" th:field="*{id}"
+                               <label for="recipient-name" class="col-form-label">Nombre:</label>
+                        <input type="text" th:field="*{nombres}" class="form-control" name="nombres">
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">apellido:</label>
+                        <input type="text" class="form-control" th:field="*{apellidos}" id="direcion">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('apellidos')}"
+                               th:errors="*{apellidos}"></small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">dni:</label>
+                        <input type="text" class="form-control" th:field="*{dni}" id="direcion">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('dni')}"
+                               th:errors="*{dni}"></small>
+                    </div>
+                    <a th:href="@{/empleado}" class="btn btn-secondary" >Cancel</a>
+                    <input type="submit" class="btn btn-primary"/>
+                </form>
+            </div>
+        </div>
+
+        <!--OTRO SCRIPTS PARA PAGINAS-->
+    <th:block layout:fragment="page-scripts">
+
+    </th:block>
+</body>
+</html>

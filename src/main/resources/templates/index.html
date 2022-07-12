@@ -1,0 +1,103 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+    <head th:replace="layout/layout :: head">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container-fluid" layout:fragment="page-content">            
+            <nav class="navbar navbar-light bg-light m-2">
+                <h4 class="ps-3"><i class="fa-solid fa-gauge me-2"></i>Dasboard</h4>
+            </nav>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-3 mt-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">EMPLEADOS</h5>
+                                <div class="w-100 text-center">
+                                    <img th:src="@{/images/dddd.png}" alt="alt" width="200" height="200"/>
+                                </div>
+                                <a th:href="@{/empleado}" class="btn btn-danger align-items-center">
+                                    <strong class="me-2 text-center">EMPLEADOS</strong><i class="fa-solid fa-angle-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3 mt-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">CLIENTES</h5>
+                                <div class="w-100 text-center">
+                                    <img th:src="@{/images/D22.png}" alt="alt" width="200" height="200"/>
+                                </div>
+                                <a th:href="@{cliente}" class="btn btn-danger">
+                                    <strong class="me-2">CLIENTES</strong><i class="fa-solid fa-angle-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3 mt-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">PRODUCTOS</h5>
+                                <div class="w-100 text-center">
+                                    <img th:src="@{/images/FRED.png}" alt="alt" width="200" height="200"/>
+                                </div>
+                                <a th:href="@{/producto}" class="btn btn-danger">
+                                    <strong class="me-2">PRODUCTOS</strong><i class="fa-solid fa-angle-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3 mt-4">
+                        <div class="card" >
+                            <div class="card-body">
+                                <h5 class="card-title text-center">LABORATORIO</h5>
+                                <div class="w-100 text-center">
+                                    <img th:src="@{/images/pngt.jpg}" alt="alt" width="200" height="200"/>
+                                </div>
+                                <a th:href="@{/laboratorio}" class="btn btn-primary">
+                                    <strong class="me-2">LABORATORIOs</strong><i class="fa-solid fa-angle-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3 mt-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">PRESENTACIONES</h5>
+                                <div class="w-100 text-center">
+                                    <img th:src="@{/images/med.png}" alt="alt" width="200" height="200"/>
+                                </div>
+                                <a th:href="@{/presentacion}" class="btn btn-primary">
+                                    <strong class="me-2">PRESENTACIONES</strong><i class="fa-solid fa-angle-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3 mt-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">VENTAS</h5>
+                                <div class="w-100 text-center">
+                                    <img th:src="@{/images/venta.png}" alt="alt" width="200" height="200"/>
+                                </div>
+                                <a th:href="@{/menu/prestamo}" class="btn btn-primary">
+                                    <strong class="me-2">VENTAS</strong><i class="fa-solid fa-angle-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--<!-- comment -->
+            </div>
+        </div>
+        
+        <!--OTRO SCRIPTS PARA PAGINAS-->
+    <th:block layout:fragment="page-scripts">
+
+    </th:block>
+</body>
+</html>
